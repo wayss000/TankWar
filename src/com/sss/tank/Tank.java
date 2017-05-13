@@ -10,19 +10,19 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * Ì¹¿ËÀà
+ * å¦å…‹ç±»
  * @author sss
  *
  */
 public class Tank {
-	int id;		//´ËidºÅÎª¾ÖÓòÍøÁ¬½ÓµÄIDºÅ
+	int id;		//æ­¤idå·ä¸ºå±€åŸŸç½‘è¿æ¥çš„IDå·
 	
-	//ÎªÁË·½±ãÆäËûÀà£¬´Ë´¦½«Ò»Ğ©±äÁ¿µÄprivateÈ¥µô£¬
+	//ä¸ºäº†æ–¹ä¾¿å…¶ä»–ç±»ï¼Œæ­¤å¤„å°†ä¸€äº›å˜é‡çš„privateå»æ‰ï¼Œ
 	int x,y;
-	private int oldX,oldY;	//¼ÇÂ¼Ì¹¿ËµÄÉÏÒ»¸öÎ»ÖÃ£¬ÒÔ±ãÅö×²µÄÊ±ºò·µ»Øµ½ÉÏÒ»¸öÎ»ÖÃ
+	private int oldX,oldY;	//è®°å½•å¦å…‹çš„ä¸Šä¸€ä¸ªä½ç½®ï¼Œä»¥ä¾¿ç¢°æ’çš„æ—¶å€™è¿”å›åˆ°ä¸Šä¸€ä¸ªä½ç½®
 	
 	private boolean live = true;
-//	private int life = 5;		//È¥µôlife£¬ºÃ»µÌ¹¿Ë¶¼ÊÇÒ»Ç¹
+//	private int life = 5;		//å»æ‰lifeï¼Œå¥½åå¦å…‹éƒ½æ˜¯ä¸€æª
 	private BloodLine bl = new BloodLine();
 
 	boolean good;
@@ -95,7 +95,7 @@ public class Tank {
 	
 	
 	Direction dir = Direction.STOP;
-	Direction ptdir = Direction.L;//ÅÚÍ²µÄ·½Ïò
+	Direction ptdir = Direction.L;//ç‚®ç­’çš„æ–¹å‘
 	
 	public boolean isLive(){
 		return live;
@@ -127,18 +127,18 @@ public class Tank {
 	
 	public void draw(Graphics g){
 		if(!live)	{
-			/*if(!good){			//È¥µôif£¬ÒâË¼ÎªÎŞÂÛÊÇ·ñºÃ»µÌ¹¿Ë£¬ËÀÍö¶¼ÒÆ³ı
-				tc.tanks.remove(this);		//Ì¹¿ËËÀÍöÊ±£¬´ÓÈİÆ÷ÖĞÒÆ³ı
+			/*if(!good){			//å»æ‰ifï¼Œæ„æ€ä¸ºæ— è®ºæ˜¯å¦å¥½åå¦å…‹ï¼Œæ­»äº¡éƒ½ç§»é™¤
+				tc.tanks.remove(this);		//å¦å…‹æ­»äº¡æ—¶ï¼Œä»å®¹å™¨ä¸­ç§»é™¤
 			}*/
 			tc.tanks.remove(this);
-			return;		//Ì¹¿ËËÀÍöÊ±£¬Ö±½Ó·µ»Ø£¬²»ÓÃÔÚ»æÍ¼
+			return;		//å¦å…‹æ­»äº¡æ—¶ï¼Œç›´æ¥è¿”å›ï¼Œä¸ç”¨åœ¨ç»˜å›¾
 		}
 		
 //		if(good)	bl.draw(g);
-		bl.draw(g);		//ÑªÌõÍ³Ò»¶¼¼ÓÉÏ
+		bl.draw(g);		//è¡€æ¡ç»Ÿä¸€éƒ½åŠ ä¸Š
 		g.drawString("ID:"+id, x, y-10);
 		
-		switch(ptdir){			//¸ù¾İÅÚÍ²·½ÏòÑ¡ÔñÍ¼Æ¬
+		switch(ptdir){			//æ ¹æ®ç‚®ç­’æ–¹å‘é€‰æ‹©å›¾ç‰‡
 		case L:
 			if(good)
 				g.drawImage(p1imgs.get("L"), x, y, null);
@@ -192,10 +192,10 @@ public class Tank {
 		move();
 	}
 	/**
-	 * ¿ØÖÆÌ¹¿ËÒÆ¶¯
+	 * æ§åˆ¶å¦å…‹ç§»åŠ¨
 	 */
 	public void move(){
-		this.oldX = x;	//	Ã¿´ÎÒÆ¶¯Ö®Ç°ÏÈ±£´æÎ»ÖÃ£»
+		this.oldX = x;	//	æ¯æ¬¡ç§»åŠ¨ä¹‹å‰å…ˆä¿å­˜ä½ç½®ï¼›
 		this.oldY = y;
 		
 		switch(dir){
@@ -230,14 +230,14 @@ public class Tank {
 		case STOP:
 			break;
 		}
-		if(dir != Direction.STOP)	this.ptdir = this.dir;	//ÉèÖÃÅÚÍ²·½Ïò
+		if(dir != Direction.STOP)	this.ptdir = this.dir;	//è®¾ç½®ç‚®ç­’æ–¹å‘
 		
-		if(x < 0)	x = 0;		//ÕâËÄÌõ£¬·ÀÖ¹Ì¹¿Ë³ö±ß½ç
+		if(x < 0)	x = 0;		//è¿™å››æ¡ï¼Œé˜²æ­¢å¦å…‹å‡ºè¾¹ç•Œ
 		if(y < 55)	y = 55;
 		if(x + Tank.WIDTH > TankClient.Game_width)	x = TankClient.Game_width - Tank.WIDTH;
 		if(y + Tank.HEIGHT > TankClient.Game_high)	y = TankClient.Game_high - Tank.HEIGHT;
 		
-		/*if(!good){									//»µÌ¹¿ËÒÆ¶¯·½Ïò
+		/*if(!good){									//åå¦å…‹ç§»åŠ¨æ–¹å‘
 			Direction[] dirs = Direction.values();
 			if(step == 0){
 				step = r.nextInt(12) + 3;
@@ -245,7 +245,7 @@ public class Tank {
 				dir = dirs[rn];
 			}
 			step--;
-			if(r.nextInt(50) > 48)	this.fire();	//»µÌ¹¿Ë·¢Éä×Óµ¯
+			if(r.nextInt(50) > 48)	this.fire();	//åå¦å…‹å‘å°„å­å¼¹
 		}*/
 	}
 
@@ -257,7 +257,7 @@ public class Tank {
 				this.live = true;
 				this.life = 4;
 			}
-			break;*/		//È¥µôºÃÌ¹¿ËÖØÉú¹¦ÄÜ
+			break;*/		//å»æ‰å¥½å¦å…‹é‡ç”ŸåŠŸèƒ½
 		case KeyEvent.VK_LEFT :
 			zuo = true;
 			break;
@@ -301,7 +301,7 @@ public class Tank {
 			superFire();
 			break;
 		case KeyEvent.VK_CONTROL:
-			fire();		//½«fire()Ìí¼ÓÖÁ´Ë£¬±ÜÃâ°´×¡CtrlÒ»Ö±ÓĞÅÚµ¯£»
+			fire();		//å°†fire()æ·»åŠ è‡³æ­¤ï¼Œé¿å…æŒ‰ä½Ctrlä¸€ç›´æœ‰ç‚®å¼¹ï¼›
 			if(isLive())
 			break;
 		case KeyEvent.VK_LEFT :
@@ -324,13 +324,13 @@ public class Tank {
 		return good;
 	}
 
-	public Rectangle getRect(){		//Åö×²¼ì²â£¬·µ»ØËùÔÚÍ¼Æ¬µÄ¾ØĞÎ±ß¿ò
+	public Rectangle getRect(){		//ç¢°æ’æ£€æµ‹ï¼Œè¿”å›æ‰€åœ¨å›¾ç‰‡çš„çŸ©å½¢è¾¹æ¡†
 		return new Rectangle(x, y, WIDTH, HEIGHT);
 	}
 	
-	public boolean hitWall(Wall w){	//×²Ç½
+	public boolean hitWall(Wall w){	//æ’å¢™
 		if(this.live && this.getRect().intersects(w.getRect()) && w.isLive()){
-			stay();		//»Øµ½ÉÏÒ»¸öÎ»ÖÃ
+			stay();		//å›åˆ°ä¸Šä¸€ä¸ªä½ç½®
 			return true;
 		}
 		return false;
@@ -341,7 +341,7 @@ public class Tank {
 		this.y = oldY;
 	}
 	
-	public boolean hitTanks(java.util.List<Tank> tanks){	//Ì¹¿ËºÍÌ¹¿Ë²»ÄÜÏà×²
+	public boolean hitTanks(java.util.List<Tank> tanks){	//å¦å…‹å’Œå¦å…‹ä¸èƒ½ç›¸æ’
 		for(int i = 0; i < tanks.size(); i++){
 			Tank t = tanks.get(i);
 			if(this != t){
@@ -361,15 +361,15 @@ public class Tank {
 		int y = this.y + Tank.HEIGHT/2 - Zidan.HEIGHT/2;
 		
 		Zidan zi = new Zidan(id,x,y,ptdir,good,tc);
-		tc.zi_s.add(zi);		//ÍùÈİÆ÷ÖĞÌí¼Ó×Óµ¯
+		tc.zi_s.add(zi);		//å¾€å®¹å™¨ä¸­æ·»åŠ å­å¼¹
 		
-		ZidanNewMsg zdm = new ZidanNewMsg(zi);//ÏòÆäËû¿Í»§¶Ë·¢ËÍ²úÉú×Óµ¯µÄĞÅÏ¢
+		ZidanNewMsg zdm = new ZidanNewMsg(zi);//å‘å…¶ä»–å®¢æˆ·ç«¯å‘é€äº§ç”Ÿå­å¼¹çš„ä¿¡æ¯
 		tc.nc.send(zdm);
 		
-		return zi;				//ÉÏ¾äÒÑ¾­Ìí¼ÓÁË£¬Õâ¸öreturn¿ÉÒÔÈ¥µôµÄ
+		return zi;				//ä¸Šå¥å·²ç»æ·»åŠ äº†ï¼Œè¿™ä¸ªreturnå¯ä»¥å»æ‰çš„
 	}
 
-	public Zidan fire(Direction dir){//´Ë·½·¨Ö÷ÒªÊÇÎªsuperFire()Ìá¹©£¬¸¨Öú
+	public Zidan fire(Direction dir){//æ­¤æ–¹æ³•ä¸»è¦æ˜¯ä¸ºsuperFire()æä¾›ï¼Œè¾…åŠ©
 		if(!live)	return null;
 		int x = this.x + Tank.WIDTH/2 - Zidan.WIDTH/2;
 		int y = this.y + Tank.HEIGHT/2 - Zidan.HEIGHT/2;
@@ -379,14 +379,14 @@ public class Tank {
 		return zi;
 	}
 	
-	public void superFire(){//Íù8¸ö·½ÏòÍ¬Ê±¿ªÅÚ
+	public void superFire(){//å¾€8ä¸ªæ–¹å‘åŒæ—¶å¼€ç‚®
 		Direction dirs[] = Direction.values();
 		for(int i = 0; i < dirs.length-1; i++){
 			fire(dirs[i]);
 		}
 	}
 	
-	private class BloodLine{//ÑªÌõ
+	private class BloodLine{//è¡€æ¡
 //		int w;
 		public void draw(Graphics g){
 			Color c = g.getColor();

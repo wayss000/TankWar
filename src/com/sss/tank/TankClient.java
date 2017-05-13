@@ -24,13 +24,13 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- * Ì¹¿Ë´óÕ½Ö÷Àà
+ * å¦å…‹å¤§æˆ˜ä¸»ç±»
  * @author sss
  *
  */
 public class TankClient extends Frame implements ActionListener{
 	
-	public static final int Game_width = 800;	//×Ô¶¨ÒåµÄ800*600µÄ½çÃæ³ß´ç
+	public static final int Game_width = 800;	//è‡ªå®šä¹‰çš„800*600çš„ç•Œé¢å°ºå¯¸
 	public static final int Game_high = 600;
 	
 	NetClient nc = new NetClient(this);
@@ -38,10 +38,10 @@ public class TankClient extends Frame implements ActionListener{
 	
 	Image backImage = null;
 	
-	private int tankNum = 5;	//µĞ·½Ì¹¿ËÊıÁ¿
-	private boolean canShowPaint = true;		//ÊÇ·ñ¿ÉÒÔ»æ»­Ö÷´°¿Ú
+	private int tankNum = 5;	//æ•Œæ–¹å¦å…‹æ•°é‡
+	private boolean canShowPaint = true;		//æ˜¯å¦å¯ä»¥ç»˜ç”»ä¸»çª—å£
 	
-	//¶¨Òå²Ëµ¥
+	//å®šä¹‰èœå•
 	MenuBar menubar = null;
 	
 	Menu menu1 = null;
@@ -55,21 +55,21 @@ public class TankClient extends Frame implements ActionListener{
 	MenuItem menuitem_use_info = null;
 	MenuItem menuitem_owner_info = null;
 	
-	//¶¨Òå¶ÔÏó
+	//å®šä¹‰å¯¹è±¡
 	Tank myTank =new Tank(50,500,true,this);
 //	Wall []wall = new Wall[10];
 
-	//ÓÉÓÚµĞ·½Ì¹¿Ë¡¢±¬Õ¨¼°×Óµ¯ÊÇÍ¬Ê±´æÔÚ¶à¸öµÄ£¬ËùÒÔList¼¯ºÏÀà£¬
+	//ç”±äºæ•Œæ–¹å¦å…‹ã€çˆ†ç‚¸åŠå­å¼¹æ˜¯åŒæ—¶å­˜åœ¨å¤šä¸ªçš„ï¼Œæ‰€ä»¥Listé›†åˆç±»ï¼Œ
 	List<Tank> tanks = new ArrayList<Tank>();
 	List<Baozha> Baozhas = new ArrayList<Baozha>();
 	List<Zidan> zi_s = new ArrayList<Zidan>();
 	List<Wall> wall = new ArrayList<Wall>();
 	
 	/*
-	 * »æÖÆÈİÆ÷¡£¸Ã·½·¨½« paint ×ª·¢¸øÈÎÒâÒ»¸ö´ËÈİÆ÷×Ó×é¼şµÄÇáÁ¿¼¶×é¼ş¡£
-	 * Èç¹ûÖØĞÂÊµÏÖ´Ë·½·¨£¬ÄÇÃ´Ó¦¸Ãµ÷ÓÃ super.paint(g) ·½·¨£¬
-	 * ´Ó¶ø¿ÉÒÔÕıÈ·µØ³ÊÏÖÇáÁ¿¼¶×é¼ş¡£
-	 * Èç¹ûÍ¨¹ı g ÖĞµÄµ±Ç°¼ôÇĞÉèÖÃÍêÈ«¼ôÇĞÄ³¸ö×Ó×é¼ş£¬Ôò²»»á½« paint() ×ª·¢¸øÕâ¸ö×Ó×é¼ş¡£ 
+	 * ç»˜åˆ¶å®¹å™¨ã€‚è¯¥æ–¹æ³•å°† paint è½¬å‘ç»™ä»»æ„ä¸€ä¸ªæ­¤å®¹å™¨å­ç»„ä»¶çš„è½»é‡çº§ç»„ä»¶ã€‚
+	 * å¦‚æœé‡æ–°å®ç°æ­¤æ–¹æ³•ï¼Œé‚£ä¹ˆåº”è¯¥è°ƒç”¨ super.paint(g) æ–¹æ³•ï¼Œ
+	 * ä»è€Œå¯ä»¥æ­£ç¡®åœ°å‘ˆç°è½»é‡çº§ç»„ä»¶ã€‚
+	 * å¦‚æœé€šè¿‡ g ä¸­çš„å½“å‰å‰ªåˆ‡è®¾ç½®å®Œå…¨å‰ªåˆ‡æŸä¸ªå­ç»„ä»¶ï¼Œåˆ™ä¸ä¼šå°† paint() è½¬å‘ç»™è¿™ä¸ªå­ç»„ä»¶ã€‚ 
 	 */
 	public void paint(Graphics g) {
 		myTank.draw(g);
@@ -103,44 +103,44 @@ public class TankClient extends Frame implements ActionListener{
 			for(int j = 0; j < wall.size(); j++){
 				t.hitWall(wall.get(j));
 			}
-//			t.hitTanks(tanks);		//Ì¹¿Ë½ûÖ¹Ïà»¥Åö×²
+//			t.hitTanks(tanks);		//å¦å…‹ç¦æ­¢ç›¸äº’ç¢°æ’
 		}
-/*È¥µô´Ë²¿·Ö£¬¼´£¬Ã»ÓĞµçÄÔÌ¹¿Ë£¬
+/*å»æ‰æ­¤éƒ¨åˆ†ï¼Œå³ï¼Œæ²¡æœ‰ç”µè„‘å¦å…‹ï¼Œ
 		if(tanks.size() == 0){
-//			for(int i = 0; i<tankNum; i++){		//µĞ·½Ì¹¿ËËÀºó£¬ÔòÖØĞÂÌí¼ÓtankNumÁ¾µĞ·½Ì¹¿Ë£»
+//			for(int i = 0; i<tankNum; i++){		//æ•Œæ–¹å¦å…‹æ­»åï¼Œåˆ™é‡æ–°æ·»åŠ tankNumè¾†æ•Œæ–¹å¦å…‹ï¼›
 //				tanks.add(new Tank(100 + i*55, 100,false,this));
 //			}
 			if(Baozhas.size() == 0){
 				if(canShowPaint == true){
 					canShowPaint = false;
-					JOptionPane.showMessageDialog(null, "¹§Ï²ÄãÒÑ»÷°ÜËùÓĞµĞ¾ü£¬Ê¤Àû£¡£¡£¡","Ê¤ÀûÀ²", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "æ­å–œä½ å·²å‡»è´¥æ‰€æœ‰æ•Œå†›ï¼Œèƒœåˆ©ï¼ï¼ï¼","èƒœåˆ©å•¦", JOptionPane.INFORMATION_MESSAGE);
 					this.setVisible(true);
 					canShowPaint = true;
-//					new Thread(new PaintThread()).start(); // Ïß³ÌÆô¶¯£»  //´Ë´¦ ²»ÄÜÆô¶¯Ïß³Ì£¬·ñÔò½«ËÀÑ­»·
+//					new Thread(new PaintThread()).start(); // çº¿ç¨‹å¯åŠ¨ï¼›  //æ­¤å¤„ ä¸èƒ½å¯åŠ¨çº¿ç¨‹ï¼Œå¦åˆ™å°†æ­»å¾ªç¯
 				}
 			}
 		}*/
 		
-		/*if(myTank.getLife() == 0){		//È¥µôÕâ¶Î£¬¼´È¥µôºÃÌ¹¿ËËÀÍöÊ±µ¯³öµÄÓÎÏ·½áÊø¶Ô»°¿ò
+		/*if(myTank.getLife() == 0){		//å»æ‰è¿™æ®µï¼Œå³å»æ‰å¥½å¦å…‹æ­»äº¡æ—¶å¼¹å‡ºçš„æ¸¸æˆç»“æŸå¯¹è¯æ¡†
 			if(canShowPaint == true){
 				canShowPaint = false;
-				JOptionPane.showMessageDialog(null, "±§Ç¸£¡£¡£¡ÄãÒÑ±»µĞ¾ü»÷°Ü£¡£¡£¡","Ê§°ÜÁË", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "æŠ±æ­‰ï¼ï¼ï¼ä½ å·²è¢«æ•Œå†›å‡»è´¥ï¼ï¼ï¼","å¤±è´¥äº†", JOptionPane.INFORMATION_MESSAGE);
 				this.setVisible(true);
 				canShowPaint = true;
-//				new Thread(new PaintThread()).start(); // Ïß³ÌÆô¶¯£»  //´Ë´¦ ²»ÄÜÆô¶¯Ïß³Ì£¬·ñÔò½«ËÀÑ­»·
+//				new Thread(new PaintThread()).start(); // çº¿ç¨‹å¯åŠ¨ï¼›  //æ­¤å¤„ ä¸èƒ½å¯åŠ¨çº¿ç¨‹ï¼Œå¦åˆ™å°†æ­»å¾ªç¯
 			}
 		}*/
 		
 		
-		g.drawString("×Óµ¯ÊıÁ¿£º"+zi_s.size(), 10, 75);
-		g.drawString("±¬Õ¨ÊıÁ¿£º"+Baozhas.size(), 10, 95);
-		g.drawString("Ì¹¿ËÊıÁ¿£º"+tanks.size(), 10, 115);
+		g.drawString("å­å¼¹æ•°é‡ï¼š"+zi_s.size(), 10, 75);
+		g.drawString("çˆ†ç‚¸æ•°é‡ï¼š"+Baozhas.size(), 10, 95);
+		g.drawString("å¦å…‹æ•°é‡ï¼š"+tanks.size(), 10, 115);
 	}
 	
-	/*update(Graphics g)	ÔÚÕâÀïÓÃË«»º³å´¦Àí£¬·ÀÖ¹»­ÃæÉÁË¸,´Ë·½·¨¿ÉÈ¥µô£¬µ«ÊÇ£¬£¬£¬
-	 * ¸üĞÂÈİÆ÷¡£¸Ã·½·¨½« update ·½·¨×ª·¢¸øÈÎÒâÒ»¸ö´ËÈİÆ÷×Ó×é¼şµÄÇáÁ¿¼¶×é¼ş¡£
-	 * Èç¹ûÖØĞÂÊµÏÖ´Ë·½·¨£¬ÄÇÃ´Ó¦¸Ãµ÷ÓÃ super.update(g) ·½·¨£¬
-	 * ´Ó¶ø¿ÉÒÔÕıÈ·µØ³ÊÏÖÇáÁ¿¼¶×é¼ş¡£
+	/*update(Graphics g)	åœ¨è¿™é‡Œç”¨åŒç¼“å†²å¤„ç†ï¼Œé˜²æ­¢ç”»é¢é—ªçƒ,æ­¤æ–¹æ³•å¯å»æ‰ï¼Œä½†æ˜¯ï¼Œï¼Œï¼Œ
+	 * æ›´æ–°å®¹å™¨ã€‚è¯¥æ–¹æ³•å°† update æ–¹æ³•è½¬å‘ç»™ä»»æ„ä¸€ä¸ªæ­¤å®¹å™¨å­ç»„ä»¶çš„è½»é‡çº§ç»„ä»¶ã€‚
+	 * å¦‚æœé‡æ–°å®ç°æ­¤æ–¹æ³•ï¼Œé‚£ä¹ˆåº”è¯¥è°ƒç”¨ super.update(g) æ–¹æ³•ï¼Œ
+	 * ä»è€Œå¯ä»¥æ­£ç¡®åœ°å‘ˆç°è½»é‡çº§ç»„ä»¶ã€‚
 	 */
 	public void update(Graphics g) {
 		if(backImage == null){
@@ -155,7 +155,7 @@ public class TankClient extends Frame implements ActionListener{
 		g.drawImage(backImage, 0, 0, null);
 	}
 	
-	public void initWall(){					//³õÊ¼»¯³ÇÇ½
+	public void initWall(){					//åˆå§‹åŒ–åŸå¢™
 		for(int i = 0 ; i < 10; i++){
 			wall.add(new Wall(150+i*50, 200,true,this));
 		}
@@ -170,15 +170,15 @@ public class TankClient extends Frame implements ActionListener{
 	public TankClient(){
 		
 		menubar = new MenuBar();
-		menu1 = new Menu("ÓÎÏ·");
-		menu2 = new Menu("°ïÖú");
-		menupause = new Menu("ÔİÍ£/¿ªÊ¼");
-		menuitem_stop = new MenuItem("ÔİÍ£");
-		menuitem_start = new MenuItem("¿ªÊ¼");
-		menuitemplay = new MenuItem("ÖØ¿ª");
-		menuitemexit = new MenuItem("ÍË³ö");
-		menuitem_use_info = new MenuItem("²Ù×÷ËµÃ÷");
-		menuitem_owner_info = new MenuItem("×÷ÕßĞÅÏ¢");
+		menu1 = new Menu("æ¸¸æˆ");
+		menu2 = new Menu("å¸®åŠ©");
+		menupause = new Menu("æš‚åœ/å¼€å§‹");
+		menuitem_stop = new MenuItem("æš‚åœ");
+		menuitem_start = new MenuItem("å¼€å§‹");
+		menuitemplay = new MenuItem("é‡å¼€");
+		menuitemexit = new MenuItem("é€€å‡º");
+		menuitem_use_info = new MenuItem("æ“ä½œè¯´æ˜");
+		menuitem_owner_info = new MenuItem("ä½œè€…ä¿¡æ¯");
 		
 		menu1.add(menuitemplay);
 		menu1.add(menuitemexit);
@@ -204,9 +204,9 @@ public class TankClient extends Frame implements ActionListener{
 		menuitem_owner_info.addActionListener(this);
 		menuitem_owner_info.setActionCommand("owner_info");
 		
-//		initWall();							//µ÷ÓÃ´Ë·½·¨³õÊ¼»¯³ÇÇ½£¬
-		tanks.add(myTank);					//ÍøÂç°æ£¬¼ÓÈë×Ô¼ºÌ¹¿Ëµ½¼¯ºÏÖĞ
-		//³õÊ¼»¯µĞ·½Ì¹¿Ë
+//		initWall();							//è°ƒç”¨æ­¤æ–¹æ³•åˆå§‹åŒ–åŸå¢™ï¼Œ
+		tanks.add(myTank);					//ç½‘ç»œç‰ˆï¼ŒåŠ å…¥è‡ªå·±å¦å…‹åˆ°é›†åˆä¸­
+		//åˆå§‹åŒ–æ•Œæ–¹å¦å…‹
 //		tanks.add(new Tank(500, 100,false,this));
 //		tanks.add(new Tank(600, 100,false,this));
 //		tanks.add(new Tank(700, 100,false,this));
@@ -214,17 +214,17 @@ public class TankClient extends Frame implements ActionListener{
 //		tanks.add(new Tank(700, 300,false,this));
 		
 		this.setLocation(280, 50);
-		this.setTitle("Ğ¡Ì¹¿Ë´óÕ½");
+		this.setTitle("å°å¦å…‹å¤§æˆ˜");
 		this.setSize(Game_width, Game_high);
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
-		this.setMenuBar(menubar);		//Ìí¼Ó²Ëµ¥´°¿Ú
+		this.setMenuBar(menubar);		//æ·»åŠ èœå•çª—å£
 		this.setResizable(false);
 		this.setBackground(Color.gray);
-		this.addKeyListener(new Keymonitor());//Ìí¼Ó¼üÅÌ´¦ÀíÊÂ¼ş
+		this.addKeyListener(new Keymonitor());//æ·»åŠ é”®ç›˜å¤„ç†äº‹ä»¶
 		this.setVisible(true);
 		
 		new Thread(new PaintThread()).start();
@@ -235,7 +235,7 @@ public class TankClient extends Frame implements ActionListener{
 	private class PaintThread implements Runnable{
 		public void run(){
 			while(canShowPaint){
-				repaint();//ÖØ»æ´Ë×é¼ş¡£Èç¹û´Ë×é¼şÊÇÇáÁ¿¼¶×é¼ş£¬Ôò´Ë·½·¨»á¾¡¿ìµ÷ÓÃ´Ë×é¼şµÄ paint ·½·¨¡£·ñÔò´Ë·½·¨»á¾¡¿ìµ÷ÓÃ´Ë×é¼şµÄ update ·½·¨¡£
+				repaint();//é‡ç»˜æ­¤ç»„ä»¶ã€‚å¦‚æœæ­¤ç»„ä»¶æ˜¯è½»é‡çº§ç»„ä»¶ï¼Œåˆ™æ­¤æ–¹æ³•ä¼šå°½å¿«è°ƒç”¨æ­¤ç»„ä»¶çš„ paint æ–¹æ³•ã€‚å¦åˆ™æ­¤æ–¹æ³•ä¼šå°½å¿«è°ƒç”¨æ­¤ç»„ä»¶çš„ update æ–¹æ³•ã€‚
 				try{
 					Thread.sleep(50);
 				}catch(InterruptedException e){
@@ -270,8 +270,8 @@ public class TankClient extends Frame implements ActionListener{
 
 		if (e.getActionCommand().equals("NewGame")) {
 			canShowPaint = false;
-			Object[] options = { "È·¶¨", "È¡Ïû" };
-			int response = JOptionPane.showOptionDialog(this, "ÄúÈ·ÈÏÒª¿ªÊ¼ĞÂÓÎÏ·£¡", "",
+			Object[] options = { "ç¡®å®š", "å–æ¶ˆ" };
+			int response = JOptionPane.showOptionDialog(this, "æ‚¨ç¡®è®¤è¦å¼€å§‹æ–°æ¸¸æˆï¼", "",
 					JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null,
 					options, options[0]);
 			if (response == 0) {
@@ -280,7 +280,7 @@ public class TankClient extends Frame implements ActionListener{
 				new TankClient();
 			} else {
 				canShowPaint = true;
-				new Thread(new PaintThread()).start(); // Ïß³ÌÆô¶¯
+				new Thread(new PaintThread()).start(); // çº¿ç¨‹å¯åŠ¨
 			}
 
 		} else if (e.getActionCommand().endsWith("Stop")) {
@@ -289,40 +289,40 @@ public class TankClient extends Frame implements ActionListener{
 
 			if (!canShowPaint) {
 				canShowPaint = true;
-				new Thread(new PaintThread()).start(); // Ïß³ÌÆô¶¯
+				new Thread(new PaintThread()).start(); // çº¿ç¨‹å¯åŠ¨
 			}
 		} else if (e.getActionCommand().equals("Exit")) {
 			canShowPaint = false;
-			Object[] options = { "È·¶¨", "È¡Ïû" };
-			int response = JOptionPane.showOptionDialog(this, "ÄúÈ·ÈÏÒªÍË³öÂğ", "",
+			Object[] options = { "ç¡®å®š", "å–æ¶ˆ" };
+			int response = JOptionPane.showOptionDialog(this, "æ‚¨ç¡®è®¤è¦é€€å‡ºå—", "",
 					JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE, null,
 					options, options[0]);
 			if (response == 0) {
 				System.exit(0);
 			} else {
 				canShowPaint = true;
-				new Thread(new PaintThread()).start(); // Ïß³ÌÆô¶¯
+				new Thread(new PaintThread()).start(); // çº¿ç¨‹å¯åŠ¨
 	
 			}
 
 		} else if (e.getActionCommand().equals("use_info")) {
 			canShowPaint = false;
-			JOptionPane.showMessageDialog(null, "ÓÃ¡ú ¡û ¡ü ¡ı¿ØÖÆ·½Ïò£¬Ctrl¼üÅÌ·¢Éä£¬A´óÕĞ£¬R»ØÑª£¡",
-					"²Ù×÷ĞÅÏ¢", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ç”¨â†’ â† â†‘ â†“æ§åˆ¶æ–¹å‘ï¼ŒCtrlé”®ç›˜å‘å°„ï¼ŒAå¤§æ‹›ï¼ŒRå›è¡€ï¼",
+					"æ“ä½œä¿¡æ¯", JOptionPane.INFORMATION_MESSAGE);
 			this.setVisible(true);
 			canShowPaint = true;
-			new Thread(new PaintThread()).start(); // Ïß³ÌÆô¶¯
+			new Thread(new PaintThread()).start(); // çº¿ç¨‹å¯åŠ¨
 		} else if(e.getActionCommand().equals("owner_info")){
 			canShowPaint = false;
-			JOptionPane.showMessageDialog(null, "×÷Õß£ºÄ±¸ç",
-					"×÷ÕßĞÅÏ¢",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ä½œè€…ï¼šè°‹å“¥",
+					"ä½œè€…ä¿¡æ¯",JOptionPane.INFORMATION_MESSAGE);
 			this.setVisible(true);
 			new Thread(new PaintThread()).start();
 		}
 	}
 	
 	class ConnDialog extends Dialog{
-		Button b = new Button("È·¶¨");
+		Button b = new Button("ç¡®å®š");
 		TextField tfIP = new TextField("127.0.0.1", 12);
 		TextField tfPort = new TextField(""+TankServer.TCP_PORT, 4);
 		TextField tfRB = new TextField(4);

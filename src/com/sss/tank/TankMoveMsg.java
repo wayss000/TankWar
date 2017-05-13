@@ -13,7 +13,7 @@ public class TankMoveMsg implements Msg{
 	int id;
 	Direction dir;
 	int x,y;
-//	Direction ptdir;	//炮筒方向
+//	Direction ptdir;	//鐐瓛鏂瑰悜
 	TankClient tc;
 
 	public TankMoveMsg(int id, Direction dir,int x,int y,Direction ptdir) {
@@ -38,7 +38,7 @@ public class TankMoveMsg implements Msg{
 			dos.writeInt(dir.ordinal());
 			dos.writeInt(x);
 			dos.writeInt(y);
-//			dos.writeInt(ptdir.ordinal()); 	//图片版，炮筒方向，确定调用的图片
+//			dos.writeInt(ptdir.ordinal()); 	//鍥剧墖鐗堬紝鐐瓛鏂瑰悜锛岀‘瀹氳皟鐢ㄧ殑鍥剧墖
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -62,7 +62,7 @@ public class TankMoveMsg implements Msg{
 			Direction dir = Direction.values()[dis.readInt()];
 			int x = dis.readInt();
 			int y = dis.readInt();
-//			Direction ptdir = Direction.values()[dis.readInt()];	//炮筒方向
+//			Direction ptdir = Direction.values()[dis.readInt()];	//鐐瓛鏂瑰悜
 //System.out.println("id:"+id+"--x:"+x+"--y:"+y+"--dir"+dir+"--ptdir:"+ptdir+"--good:"+good);
 
 			for(int i = 0; i < tc.tanks.size(); i++){

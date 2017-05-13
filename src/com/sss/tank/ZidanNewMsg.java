@@ -31,7 +31,7 @@ public class ZidanNewMsg implements Msg {
 			dos.writeInt(zd.tankId);
 			dos.writeInt(zd.x);
 			dos.writeInt(zd.y);
-			dos.writeInt(zd.dir.ordinal()); 	//图片版，炮筒方向，确定调用的图片
+			dos.writeInt(zd.dir.ordinal()); 	//鍥剧墖鐗堬紝鐐瓛鏂瑰悜锛岀‘瀹氳皟鐢ㄧ殑鍥剧墖
 			dos.writeBoolean(zd.good);
 		} catch (IOException e) {
 			e.printStackTrace();

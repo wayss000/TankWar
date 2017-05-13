@@ -31,7 +31,7 @@ public class TankNewMsg implements Msg{
 			dos.writeInt(tank.x);
 			dos.writeInt(tank.y);
 			dos.writeInt(tank.dir.ordinal());
-			dos.writeInt(tank.ptdir.ordinal()); 	//图片版，炮筒方向，确定调用的图片
+			dos.writeInt(tank.ptdir.ordinal()); 	//鍥剧墖鐗堬紝鐐瓛鏂瑰悜锛岀‘瀹氳皟鐢ㄧ殑鍥剧墖
 			dos.writeBoolean(tank.good);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -57,7 +57,7 @@ public class TankNewMsg implements Msg{
 			int x = dis.readInt();
 			int y = dis.readInt();
 			Direction dir = Direction.values()[dis.readInt()];
-			Direction ptdir = Direction.values()[dis.readInt()];	//炮筒方向
+			Direction ptdir = Direction.values()[dis.readInt()];	//鐐瓛鏂瑰悜
 			boolean good = dis.readBoolean();
 //System.out.println("id:"+id+"--x:"+x+"--y:"+y+"--dir"+dir+"--ptdir:"+ptdir+"--good:"+good);
 	

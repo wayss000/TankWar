@@ -6,9 +6,9 @@ import java.awt.Toolkit;
 
 public class Baozha {
 	private int x,y;
-	private boolean live = true;	//±¬Õ¨µÄÉúÃü
+	private boolean live = true;	//çˆ†ç‚¸çš„ç”Ÿå‘½
 	private TankClient tc;
-	private boolean baozhaInit = false;		//µÚÒ»¸ö±¬Õ¨Òò²»ÄÜÕı³£ÏÔÊ¾£¬¹ÊÌí¼Ó´Ë±äÁ¿£¬ÏÈ²úÉúÒ»¸ö±¬Õ¨£¬
+	private boolean baozhaInit = false;		//ç¬¬ä¸€ä¸ªçˆ†ç‚¸å› ä¸èƒ½æ­£å¸¸æ˜¾ç¤ºï¼Œæ•…æ·»åŠ æ­¤å˜é‡ï¼Œå…ˆäº§ç”Ÿä¸€ä¸ªçˆ†ç‚¸ï¼Œ
 	
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
 	
@@ -34,7 +34,7 @@ public class Baozha {
 	}
 	
 	public void draw(Graphics g){
-		if(!baozhaInit){		//ÈôÎªfalse£¬ËµÃ÷Ã»ÓĞ²úÉú¹ı±¬Õ¨£¬Òò´ËÏÈ²úÉúÒ»¸ö£¬²¢ËæºóÉèÖÃÎªtrue,
+		if(!baozhaInit){		//è‹¥ä¸ºfalseï¼Œè¯´æ˜æ²¡æœ‰äº§ç”Ÿè¿‡çˆ†ç‚¸ï¼Œå› æ­¤å…ˆäº§ç”Ÿä¸€ä¸ªï¼Œå¹¶éšåè®¾ç½®ä¸ºtrue,
 			for(int i = 0; i < imgs.length; i++)
 				g.drawImage(imgs[i],-100 , -100, null);
 			baozhaInit = true;
@@ -52,7 +52,7 @@ public class Baozha {
 			return;
 		}
 
-		g.drawImage(imgs[step], x, y, null);	//»æÖÆ±¬Õ¨Í¼°¸
+		g.drawImage(imgs[step], x, y, null);	//ç»˜åˆ¶çˆ†ç‚¸å›¾æ¡ˆ
 		step++;
 	}
 }
