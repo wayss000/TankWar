@@ -1,4 +1,4 @@
-package com.sss.tank;
+package pers.wayss.tank;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -9,7 +9,7 @@ import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 
 public class TankMoveMsg implements Msg{
-	int msgType = Msg.Tank_Move_Msg;
+	int msgType = Tank_Move_Msg;
 	int id;
 	Direction dir;
 	int x,y;

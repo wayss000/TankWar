@@ -1,4 +1,4 @@
-package com.sss.tank;
+package pers.wayss.tank;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -69,7 +69,7 @@ public class Zidan {
 			return;
 		}
 					
-		switch(dir){			//»æÖÆ³öÅÚÍ²
+		switch(dir){			//ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½Í²
 		case L:
 			g.drawImage(imgsZidan.get("L"), x, y, null);
 			break;
@@ -130,7 +130,7 @@ public class Zidan {
 			y += YSPEED;
 			break;
 		}
-		if(x < 0 || y < 0 || x > TankClient.Game_width || y > TankClient.Game_high){//×Óµ¯³ö±ß½ç¾ÍËÀÁË
+		if(x < 0 || y < 0 || x > TankClient.Game_width || y > TankClient.Game_high){//ï¿½Óµï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			live = false;
 		}
 	}
@@ -143,16 +143,16 @@ public class Zidan {
 		return new Rectangle(x, y, WIDTH, HEIGHT);
 	}
 	
-	public boolean hitTank(Tank t){//×Óµ¯¹¥»÷Ì¹¿Ë
-		if(this.getRect().intersects(t.getRect()) && t.isLive() && this.good != t.isGood()){//Á½¸ö¾ØÐÎÏà½»£¬²¢ÇÒÌ¹¿Ë»òÕß£¬²¢ÇÒ¡°ºÃÌ¹¿Ë²»´òºÃÌ¹¿Ë£¬»µ²»´ò»µ¡±
-			/*if(t.isGood()){			//ÈôÊÇtrueÌ¹¿Ë£¬ÔòÅÐ¶ÏÉúÃüÖµÊÇ·ñÎª0£¬ÈôÊÇfalseÌ¹¿Ë£¬Ö±½ÓËÀ
-				t.setLife();		//ÎÒ·½Ì¹¿ËÌ¹¿ËÉúÃü-1
+	public boolean hitTank(Tank t){//ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½
+		if(this.getRect().intersects(t.getRect()) && t.isLive() && this.good != t.isGood()){//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à½»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½Ë»ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½Ò¡ï¿½ï¿½ï¿½Ì¹ï¿½Ë²ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò»µ¡ï¿½
+			/*if(t.isGood()){			//ï¿½ï¿½ï¿½ï¿½trueÌ¹ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ç·ï¿½Îª0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½falseÌ¹ï¿½Ë£ï¿½Ö±ï¿½ï¿½ï¿½ï¿½
+				t.setLife();		//ï¿½Ò·ï¿½Ì¹ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1
 				if(t.getLife() < 0) t.setLive(false);
 			}
-			else	t.setLive(false);*/		//µÐ·½Ö±½ÓÌ¹¿ËËÀ
-			t.setLive(false);	//È¥µôÉÏÃæÕâ¶Î£¬ËùÓÐÌ¹¿ËÖ±½ÓËÀÍö
+			else	t.setLive(false);*/		//ï¿½Ð·ï¿½Ö±ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½
+			t.setLive(false);	//È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			this.live = false;		//×Óµ¯ËÀ
+			this.live = false;		//ï¿½Óµï¿½ï¿½ï¿½
 
 			Baozha b = new Baozha(x, y, tc);
 			tc.Baozhas.add(b);

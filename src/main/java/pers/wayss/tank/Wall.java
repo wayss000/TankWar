@@ -1,4 +1,4 @@
-package com.sss.tank;
+package pers.wayss.tank;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;

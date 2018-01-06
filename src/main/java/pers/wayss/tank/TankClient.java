@@ -1,4 +1,4 @@
-package com.sss.tank;
+package pers.wayss.tank;
 
 import java.awt.Button;
 import java.awt.Color;

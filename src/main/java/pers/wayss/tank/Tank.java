@@ -1,4 +1,4 @@
-package com.sss.tank;
+package pers.wayss.tank;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -7,7 +7,6 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * 坦克类

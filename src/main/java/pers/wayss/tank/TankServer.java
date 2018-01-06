@@ -1,4 +1,4 @@
-package com.sss.tank;
+package pers.wayss.tank;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
